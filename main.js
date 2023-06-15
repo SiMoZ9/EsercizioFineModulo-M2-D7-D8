@@ -185,8 +185,6 @@ function search_for_html(tit, loc) {
   let title_val = tit.value
   let loc_val = loc.value
 
-  console.log(title_val)
-
   title_val = title_val.toLowerCase()
   if (title_val.length > 0 && title_val.length < 2) {
     console.log("Minimo 2 caratteri")
