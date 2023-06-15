@@ -126,7 +126,6 @@ const jobs = [
 ]
 
 /***************************************       PARTE 1      ***********************************************************/
-let count = 0;
 function search(title, loc) {
 
   let results = [];
@@ -173,8 +172,6 @@ function search_for_html(tit, loc) {
 
   let p = body.appendChild(document.createElement("p"))
       
-  let count = 0;
-
   tit = document.getElementById("title")
   loc = document.getElementById("pos")
 
