@@ -184,12 +184,14 @@ function search_for_html(tit, loc) {
 
   title_val = title_val.toLowerCase()
   if (title_val.length > 0 && title_val.length < 2) {
+    p.textContent = "Posizione lavorativa: minimo 2 caratteri"
     console.log("Minimo 2 caratteri")
     return -1
   }
   
   loc_val = loc_val.toLowerCase()
   if (loc_val.length > 0 && loc_val.length < 2) {
+    p.textContent = "Posizione geografica: minimo 2 caratteri"
     console.log("Minimo 2 caratteri")
     return -1
   }
