@@ -125,42 +125,6 @@ const jobs = [
   },
 ]
 
-/***************************************       PARTE 1      ***********************************************************/
-function search(title, loc) {
-
-  let results = [];
-  let count = 0;
-  
-  title = title.toLowerCase()
-  if (title.length > 0 && title.length < 2) {
-    console.log("Minimo 3 caratteri")
-    return -1
-  }
-  
-  loc = loc.toLowerCase()
-  if (loc.length > 0 && loc.length < 2) {
-    console.log("Minimo 2 caratteri")
-    return -1
-  }
-
-  if (loc.length == 0)
-    console.log("Ricerca solo per tipologia di lavoro")
-
-  if (title.length == 0)
-    console.log("Ricerca solo per posizione geografica")
-
-  for (let i = 0; i < jobs.length; i++) {
-    jobs[i].title = jobs[i].title.toLowerCase();
-    jobs[i].location = jobs[i].location.toLowerCase();
-    
-    if (jobs[i].title.includes(title) && jobs[i].location.includes(loc)) {
-      results.push(jobs[i]);
-      count++
-    }
-  }
-  console.log(`Found ${count} jobs\n`, results);
-}
-
 /***************************************       PARTE 2     ***********************************************************/
 const btn = document.getElementById("btn");
 btn.onclick = search_for_html
