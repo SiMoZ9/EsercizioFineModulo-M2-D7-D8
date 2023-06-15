@@ -125,6 +125,8 @@ const jobs = [
   },
 ]
 
+
+
 /***************************************       PARTE 2     ***********************************************************/
 const btn = document.getElementById("btn");
 btn.onclick = search_for_html
