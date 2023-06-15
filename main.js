@@ -125,7 +125,41 @@ const jobs = [
   },
 ]
 
+/***************************************       PARTE 1      ***********************************************************/
+let count = 0;
+function search(title, loc) {
 
+  let results = [];
+  
+  title = title.toLowerCase()
+  if (title.length > 0 && title.length < 2) {
+    console.log("Minimo 3 caratteri")
+    return -1
+  }
+  
+  loc = loc.toLowerCase()
+  if (loc.length > 0 && loc.length < 2) {
+    console.log("Minimo 2 caratteri")
+    return -1
+  }
+
+  if (loc.length == 0)
+    console.log("Ricerca solo per tipologia di lavoro")
+
+  if (title.length == 0)
+    console.log("Ricerca solo per posizione geografica")
+
+  for (let i = 0; i < jobs.length; i++) {
+    jobs[i].title = jobs[i].title.toLowerCase();
+    jobs[i].location = jobs[i].location.toLowerCase();
+    
+    if (jobs[i].title.includes(title) && jobs[i].location.includes(loc)) {
+      results.push(jobs[i]);
+      count++
+    }
+  }
+  return results
+}
 
 /***************************************       PARTE 2     ***********************************************************/
 const btn = document.getElementById("btn");
@@ -139,7 +173,6 @@ function search_for_html(tit, loc) {
 
   let p = body.appendChild(document.createElement("p"))
       
-  let results = [];
   let count = 0;
 
   tit = document.getElementById("title")
@@ -148,36 +181,14 @@ function search_for_html(tit, loc) {
   let title_val = tit.value
   let loc_val = loc.value
 
-  title_val = title_val.toLowerCase()
-  if (title_val.length > 0 && title_val.length < 2) {
-    p.textContent = "Posizione lavorativa: minimo 2 caratteri"
-    console.log("Minimo 2 caratteri")
-    return -1
-  }
+  let results = search(title_val, loc_val)
   
-  loc_val = loc_val.toLowerCase()
-  if (loc_val.length > 0 && loc_val.length < 2) {
-    p.textContent = "Posizione geografica: minimo 2 caratteri"
-    console.log("Minimo 2 caratteri")
-    return -1
-  }
-
-  for (let i = 0; i < jobs.length; i++) {
-    jobs[i].title = jobs[i].title.toLowerCase();
-    jobs[i].location = jobs[i].location.toLowerCase();
-    
-    if (jobs[i].title.includes(title_val) && jobs[i].location.includes(loc_val)) {
-      results.push(jobs[i]);
-      count++
-    }
-  }
-
-  p.textContent = `Found ${count} jobs`
+  p.textContent = `Found ${results.length} jobs`
 
   let list = document.createElement("ul");
   body.appendChild(list)
 
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < (results.length); i++) {
     li[i] = document.createElement("li")
     list.appendChild(li[i])
 
