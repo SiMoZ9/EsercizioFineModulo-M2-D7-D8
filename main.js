@@ -176,10 +176,7 @@ function search_for_html(tit, loc) {
   let li = [];
 
   let p = body.appendChild(document.createElement("p"))
-
-
-
-
+      
   let results = [];
   let count = 0;
 
@@ -192,8 +189,8 @@ function search_for_html(tit, loc) {
   console.log(title_val)
 
   title_val = title_val.toLowerCase()
-  if (title_val.length > 0 && title_val.length < 3) {
-    console.log("Minimo 3 caratteri")
+  if (title_val.length > 0 && title_val.length < 2) {
+    console.log("Minimo 2 caratteri")
     return -1
   }
   
