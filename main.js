@@ -125,8 +125,7 @@ const jobs = [
   },
 ]
 
-//Parte 1
-/*
+/***************************************       PARTE 1      ***********************************************************/
 function search(title, loc) {
 
   let results = [];
@@ -161,10 +160,8 @@ function search(title, loc) {
   }
   console.log(`Found ${count} jobs\n`, results);
 }
-*/
 
-// PARTE 2
-
+/***************************************       PARTE 2     ***********************************************************/
 const btn = document.getElementById("btn");
 btn.onclick = search_for_html
 
